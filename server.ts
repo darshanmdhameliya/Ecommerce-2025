@@ -28,8 +28,10 @@ import Category from "./router/CategoryRouter";
 app.use(express.json());
 app.use("/category", Category);
 
+
 // configure the routers
 import SubCategoryRouter from "./router/SubCategoryRouter";
+
 
 /** 
 @usage : to get all subcategory
@@ -40,6 +42,20 @@ import SubCategoryRouter from "./router/SubCategoryRouter";
 
 app.use(express.json());
 app.use("/subcategory",SubCategoryRouter );
+
+
+// configure the routers
+import ProductRouter from "./router/ProductRouter";
+
+/** 
+@usage : to get all Product
+@methodm: GETs
+@params : no-params
+@url : http://localhost:9999/Product
+*/
+
+app.use(express.json());
+app.use("/product",ProductRouter );
 
 if (port) {
   app.listen(Number(port), () => {

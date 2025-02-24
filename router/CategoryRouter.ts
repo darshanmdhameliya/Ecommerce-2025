@@ -49,10 +49,10 @@ CategoryRouter.put(
 
 
 // delete
-CategoryRouter.delete(
-  "/:categoryId",
+CategoryRouter.put(
+  "/delete/:categoryId",
   async (request: Request, response: Response) => {
-    await CategoryContoller.deleteCategory(request, response);
+    await CategoryContoller.updateCategoryStatus(request, response);
   }
 );
 

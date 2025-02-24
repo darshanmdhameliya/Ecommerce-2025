@@ -84,10 +84,18 @@ export const updateSubCategory = async (request: Request, response: Response) =>
 
 
 //Delete
-export const deleteSubCategory = async (request: Request, response: Response) => {
+export const updateSubCategoryStatus = async (request: Request, response: Response) => {
   let { SubcategoryId } = request.params;
   let theSubCategory: EcomSubCategory | undefined | null =
-    await SubCategoryTable.findByIdAndDelete(SubcategoryId);
+    await SubCategoryTable.findByIdAndUpdate(
+      SubcategoryId,
+      {
+        isActive:false
+      },
+      {
+        new:true,
+      }
+    );
   if (!theSubCategory) {
     return response.status(500).json({
       data: null,

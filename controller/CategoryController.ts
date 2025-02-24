@@ -3,9 +3,7 @@ import CategoryTable from "../database/CategorySchema";
 import { EcomCategory } from "../models/EcomCategory";
 import mongoose from "mongoose";
 
-// @usage : to get all category
-// @method : GET
-// @params : no-params
+// get all Product
 export const getAllcategory = async (request: Request, response: Response) => {
   try {
     let Category: EcomCategory[] | undefined = await CategoryTable.find();
@@ -79,12 +77,22 @@ export const updateCategory = async (request: Request, response: Response) => {
   return response.status(200).json(theCategory);
 };
 
-
 //Delete
-export const deleteCategory = async (request: Request, response: Response) => {
+export const updateCategoryStatus = async (
+  request: Request,
+  response: Response
+) => {
   let { categoryId } = request.params;
-  let theCategory: EcomCategory | undefined | null =
-    await CategoryTable.findByIdAndDelete(categoryId);
+  let theCategory: EcomCategory  | null =
+    await CategoryTable.findByIdAndUpdate(
+      categoryId,
+      {
+        isActive: false,
+      },
+      {
+        new: true,
+      }
+    );
   if (!theCategory) {
     return response.status(500).json({
       data: null,
@@ -93,5 +101,3 @@ export const deleteCategory = async (request: Request, response: Response) => {
   }
   return response.status(200).json(theCategory);
 };
-
-
