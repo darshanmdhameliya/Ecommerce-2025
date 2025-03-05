@@ -21,8 +21,8 @@ export const getAllSubcategory = async (request: Request, response: Response) =>
 
 // get SubCategory by id
 export const getSubCategory = async (request: Request, response: Response) => {
-  let { SubcategoryId } = request.params;
-  const mongosubcategoryId = new mongoose.Types.ObjectId( SubcategoryId);
+  let { subcategoryId } = request.params;
+  const mongosubcategoryId = new mongoose.Types.ObjectId(subcategoryId);
   let theSubCategory: EcomSubCategory | undefined | null =
     await SubCategoryTable.findById(mongosubcategoryId);
   if (!theSubCategory) {
@@ -56,12 +56,12 @@ export const createSubCategory = async (request: Request, response: Response) =>
 
 //update
 export const updateSubCategory = async (request: Request, response: Response) => {
-  let { SubcategoryId } = request.params;
+  let { subcategoryId } = request.params;
   let { category_id,sub_category_name, sub_category_description ,sub_category_logo , isActive} =
     request.body;
   let theSubCategory: EcomSubCategory | undefined | null =
     await SubCategoryTable.findByIdAndUpdate(
-      SubcategoryId,
+      subcategoryId,
       {
         category_id,
         sub_category_name,
@@ -85,10 +85,10 @@ export const updateSubCategory = async (request: Request, response: Response) =>
 
 //Delete
 export const updateSubCategoryStatus = async (request: Request, response: Response) => {
-  let { SubcategoryId } = request.params;
+  let { subcategoryId } = request.params;
   let theSubCategory: EcomSubCategory | undefined | null =
     await SubCategoryTable.findByIdAndUpdate(
-      SubcategoryId,
+      subcategoryId,
       {
         isActive:false
       },

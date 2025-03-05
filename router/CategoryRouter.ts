@@ -7,7 +7,7 @@ const CategoryRouter: Router = Router();
 // @usage  : getall category
 // @method : get
 // @params : no params
-// @url    :http://127.0.0.1:9999/category
+// @url    : http://127.0.0.1:8888/category
 
 CategoryRouter.get(
   "/",
@@ -20,7 +20,7 @@ CategoryRouter.get(
 // @usage  : get category by id
 // @method : get
 // @params : categoryId
-// @url    :http://127.0.0.1:9999/category/:categoryId
+// @url    : http://127.0.0.1:8888/category/:categoryId
 
 CategoryRouter.get(
   "/:categoryId",
@@ -29,6 +29,10 @@ CategoryRouter.get(
   }
 );
 
+// @usage  : post category 
+// @method : post
+// @params : noparams
+// @url    : http://127.0.0.1:8888/category
 
 //post
 CategoryRouter.post(
@@ -38,6 +42,10 @@ CategoryRouter.post(
   }
 );
 
+// @usage  : update category by id
+// @method : put
+// @params : categoryId
+// @url    : http://127.0.0.1:8888/subcategory/:categoryId
 
 // update
 CategoryRouter.put(
@@ -47,6 +55,10 @@ CategoryRouter.put(
   }
 );
 
+// @usage  : delete category by id 
+// @method : delete
+// @params : categoryId
+// @url    : http://127.0.0.1:8888/subcategory/delete/:categoryId
 
 // delete
 CategoryRouter.put(

@@ -7,7 +7,7 @@ const SubCategoryRouter: Router = Router();
 // @usage  : get all Subcategory
 // @method : get
 // @params : no params
-// @url    :http://127.0.0.1:9999/Subcategory
+// @url    :http://127.0.0.1:8888/subcategory
 
 SubCategoryRouter.get(
   "/",
@@ -16,19 +16,22 @@ SubCategoryRouter.get(
   }
 );
 
-
 // @usage  : get Subcategory by id
 // @method : get
 // @params : categoryId
-// @url    :http://127.0.0.1:9999/Subcategory/:SubcategoryId
+// @url    :http://127.0.0.1:8888/subcategory/:subcategoryId
 
 SubCategoryRouter.get(
-  "/:SubcategoryId",
+  "/:subcategoryId",
   async (request: Request, response: Response) => {
     await SubCategoryContoller.getSubCategory(request, response);
   }
 );
 
+// @usage  : post subcategory
+// @method : post
+// @params : noparams
+// @url    : http://127.0.0.1:8888/subcategory
 
 //post
 SubCategoryRouter.post(
@@ -38,19 +41,27 @@ SubCategoryRouter.post(
   }
 );
 
+// @usage  : update subcategory by id
+// @method : put
+// @params : subcategoryId
+// @url    : http://127.0.0.1:8888/product/:subcategoryId
 
 // update
 SubCategoryRouter.put(
-  "/:SubcategoryId",
+  "/:subcategoryId",
   async (request: Request, response: Response) => {
     await SubCategoryContoller.updateSubCategory(request, response);
   }
 );
 
+// @usage  : delete subcategory by id
+// @method : delete
+// @params : subcategoryId
+// @url    : http://127.0.0.1:8888/subcategory/delete/:subcategoryId
 
 // delete
 SubCategoryRouter.put(
-  "/delete/:SubcategoryId",
+  "/delete/:subcategoryId",
   async (request: Request, response: Response) => {
     await SubCategoryContoller.updateSubCategoryStatus(request, response);
   }
